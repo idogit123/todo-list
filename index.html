@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ac4a8d701a.js" crossorigin="anonymous"></script>
+    <title>Tako</title>
+</head>
+<body>
+    <div id="task-list-page">
+        <header>
+            <i id="title-icon" class="fa-solid fa-bowl-food"></i>
+            <h1 class="page-title">רשימת משימות</h1>
+        </header>
+        <main id="task-list">
+            
+        </main>
+        <input id="task-name-input" data-status="hidden" maxlength="10" placeholder="שם המשימה" type="text">
+        <i onclick="addTaskButtonPressed()" data-status="active" id="add-task-button" class="fa-solid fa-plus"></i>
+        <i onclick="trashSelectedTasks()" data-status="hidden" id="trash-button" class="fa-solid fa-trash"></i>
+        <i onclick="completeSelectedTasks()" data-status="hidden" id="complete-button" class="fa-solid fa-check"></i>
+    </div>
+    <!-- <div id="confetti-container"></div> -->
+    <script src="confetti.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

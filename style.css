@@ -1,0 +1,222 @@
+:root {
+    --grey1: rgb(10,10,10);
+    --grey2: rgb(20,20,20);
+    --text1: rgba(255, 255, 255, 0.85);
+    --spring-green: hsl(160, 100%, 50%);
+    --tenn: hsl(30, 85%, 25%);
+}
+
+body {
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: var(--spring-green);
+    position: relative;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    user-select: none;
+}
+
+#task-list-page {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 
+        "header"
+        "main"
+    ;
+    overflow: hidden;
+}
+
+#task-list-page > header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-right: 16px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    position: relative;
+}
+
+/* .page > nav {
+    grid-area: navbar;
+    display: grid;
+    place-items: center;
+    padding-bottom: 12px;
+} */
+
+#task-list-page > main {
+    padding-top: 24px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: black;
+    overflow-y: auto;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.task-card {
+    min-height: 80px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* background-image: linear-gradient(to bottom left, rgba(255, 255, 255, .05), rgba(255, 255, 255, .1), black); */
+    /* color: var(--spring-green); */
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    position: relative;
+}
+
+.task-card[data-status = "selected"] {
+    position: relative;
+    
+}
+
+.task-card[data-status = "selected"] > .card-status {
+    transition: .4s;
+    width: 100%;
+    background-color: var(--spring-green);
+}
+
+.task-card[data-status = "selected"] > .card-title {
+    position: absolute;
+    letter-spacing: 1px;
+    color: black;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+.page-title {
+    color: var(--spring-green);
+}
+
+#title-icon {
+    position: absolute;
+    right: 16px;
+    color: white;
+    font-size: 32px;
+}
+
+#task-name-input {
+    position: absolute;
+    bottom: 24px;
+    width: 85%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 32px;
+    border-radius: 6px;
+    border: 3px solid var(--spring-green);
+    background-color: black;
+    color: white;
+    direction: rtl;
+    transition: transform .4s;
+}
+
+#task-name-input[data-status = "hidden"] {
+    transform: translateX(200%);
+}
+
+#task-name-input:focus {
+    outline: none;
+    
+}
+
+#add-task-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    display: grid;
+    place-items: center;
+    background-color: var(--spring-green);
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: transform .4s;
+}
+
+#add-task-button[data-status = "hidden"] {
+    transform: translateY(200%);
+}
+
+#add-task-button[data-status = "go-up"] {
+    transform: translateY(-100%);
+}
+
+#trash-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    display: grid;
+    place-items: center;
+    background-color: var(--spring-green);
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    bottom: 0;
+    bottom: 24px;
+    left: 32px;
+    transition: transform .4s;
+}
+
+#trash-button[data-status = "hidden"] {
+    transform: translateY(200%);
+}
+
+#complete-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    display: grid;
+    place-items: center;
+    background-color: var(--spring-green);
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    transition: transform .4s;
+}
+
+#complete-button[data-status = "hidden"] {
+    transform: translateY(200%);
+}
+
+.card-status {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-left: 24px;
+    background-color: white;
+}
+
+#confetti-container {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+}
